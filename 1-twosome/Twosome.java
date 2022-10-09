@@ -5,7 +5,7 @@ You may assume that each input would have exactly one solution, and you may not 
  */
 import java.util.Map;
 
-class Solution {
+class Twosome {
     public int[] twoSum(int[] nums, int target) {
 
         Map<Integer, Integer> numToIndexMap = new HashMap<>();
@@ -35,7 +35,7 @@ class Solution {
         int[] nums = {1, 3, 2, 7};
         int target = 9;
 
-        Solution obj = new Solution();
+        Twosome obj = new Twosome();
 
         int[] positions = obj.twoSum(nums, target);
 
