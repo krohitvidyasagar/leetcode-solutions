@@ -7,28 +7,19 @@ import java.util.Map;
 
 class Twosome {
     public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> numPos = new HashMap<>();
 
-        Map<Integer, Integer> numToIndexMap = new HashMap<>();
-        int remainder;
+        int diff;
+        for (int i=0; i<nums.length; i++) {
+            diff = target - nums[i];
 
-        int[] positions = new int[2];
-
-        for(int i=0; i < nums.length; i++) {
-            remainder = target - nums[i];
-            
-            if (numToIndexMap.get(remainder) != null) {
-                positions[0] = numToIndexMap.get(remainder);
-                positions[1] = i;
-
-                return positions;
-            } else {
-                numToIndexMap.put(nums[i], i);
+            if (numPos.containsKey(diff)) {
+                return new int[] { i, numPos.get(diff)};
             }
+            numPos.put(nums[i], i);
         }
 
-        positions[0] = 0;
-        positions[1] = 0;
-        return positions;
+        return new int[] { 0, 0};
     }
 
     public static void main(String[] args) {
